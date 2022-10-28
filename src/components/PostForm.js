@@ -1,8 +1,8 @@
 import React from 'react'
 
 const defaultFormValues = {
-  title: '',
-  body: '',
+  name: '',
+  petType: '',
 }
 
 export default function PostForm({
@@ -30,24 +30,24 @@ export default function PostForm({
 
   return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor="title">Title</label>
+      <label htmlFor="title">pet name</label>
       <div>
         <input
           type="text"
-          name="title"
-          value={values.title}
-          onChange={(e) => setValue('title', e.target.value)}
+          name="name"
+          value={values.name}
+          onChange={(e) => setValue('name', e.target.value)}
           required
         />
       </div>
       <br />
-      <label htmlFor="body">body</label>
+      <label htmlFor="body">pet type</label>
       <div>
         <textarea
           type="text"
-          name="body"
-          value={values.body}
-          onChange={(e) => setValue('body', e.target.value)}
+          name="petType"
+          value={values.petType}
+          onChange={(e) => setValue('petType', e.target.value)}
           required
           rows="10"
         />

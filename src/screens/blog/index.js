@@ -1,15 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-//
-import usePosts from '../../hooks/usePosts'
+import usePets from '../../hooks/usePets'
 import { PostStyles } from '../../components/styled'
 
 export default function Home() {
-  const postsQuery = usePosts()
+  const postsQuery = usePets()
 
   return (
     <div>
-      <h1>Blog</h1>
+      <h1>Pets</h1>
 
       <div
         css={`
@@ -23,10 +22,10 @@ export default function Home() {
         ) : postsQuery.isError ? (
           postsQuery.error.message
         ) : (
-          postsQuery.data.map((post) => (
-            <PostStyles as={Link} to={`./${post.id}`} key={post.id}>
-              <h3>{post.title}</h3>
-              <p>{post.body}</p>
+          postsQuery.data.map((pet) => (
+            <PostStyles as={Link} to={`./${pet.id}`} key={pet.id}>
+              <h3>{pet.petType}</h3>
+              <p>{pet.name}</p>
             </PostStyles>
           ))
         )}
